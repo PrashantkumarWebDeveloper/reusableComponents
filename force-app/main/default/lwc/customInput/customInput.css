@@ -1,0 +1,8 @@
+.custom-label {
+  /*
+    Use of variable to override formatting from parent.
+    label color can be overriden using variable  --custom-input-label-color in parent component
+    default (fallback) color is black (#ccc)
+    */
+  color: var(--custom-input-label-color, #000);
+}

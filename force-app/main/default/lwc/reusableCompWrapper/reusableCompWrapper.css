@@ -1,0 +1,6 @@
+.container{
+    background-color: #fff;
+    padding: 1rem;
+    /* Setting label color for child component using css variable */
+    --custom-input-label-color: green;
+}

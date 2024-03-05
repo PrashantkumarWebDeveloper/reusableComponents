@@ -1,0 +1,39 @@
+<template>
+  <!-- 
+    Accessibility implementation:
+    1. Using attributes "for" in label and "id" in input element for backward compatibility of
+      screen readers as well as shifting focus to input on click on label.
+    2. "aria-labelledby" points to the label element based on the specified id, it tells
+      screen readers to read content of label for input field.
+    3. "aria-describedby" points to the lightning-helptext using id and tells screen readers to
+      provide additional information/help content/description.
+    4. "alternative-text" attribute on help text tells screen readers about what is the help about.
+   -->
+  <div class="slds-form-element">
+    <label
+      class="slds-form-element__label custom-label"
+      for="custom-input"
+      id="custom-input-label"
+    >
+      {label}
+    </label>
+    <lightning-helptext
+      lwc:if={helpText}
+      id="custom-input-help-text"
+      content={helpText}
+      alternative-text={helpContent}
+    ></lightning-helptext>
+    <div class="slds-form-element__control">
+      <input
+        type="text"
+        id="custom-input"
+        name={name}
+        class="slds-input"
+        value={value}
+        aria-describedby="custom-input-help-text"
+        aria-labelledby="custom-input-label"
+        onchange={handleChange}
+      />
+    </div>
+  </div>
+</template>
